@@ -16,4 +16,4 @@ For this project I used pug for the view templates, Node.js to run the code and 
 - mongoose
 - nodemon
 
-All the data will be stored in a MongoDB Atlas database. Some data in that database will be encrypted (which is part of the project).
+All the data will be stored in a MongoDB Atlas database. Some data in that database will be encrypted (which is part of the project). The project can be found [here](https://www.theodinproject.com/paths/full-stack-javascript/courses/nodejs/lessons/members-only).
