@@ -23,9 +23,9 @@ exports.signup_post = [
   // Check if username is already in the database
   body('user_name', 'Username is already in use.').custom((value, { req }) => {
     return new Promise((resolve, reject) => {
-      User.findOne({ user_name: req.body.user_name }, function(err, user) {
+      User.findOne({ username: req.body.user_name }, function(err, user) {
         if (err) return next(err);
-        if(Boolean(user)) {
+        if(user.username == value) {
           reject(new Error('Username is already in use.'))
         }
         resolve(true);
