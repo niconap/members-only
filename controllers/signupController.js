@@ -4,6 +4,7 @@ const { body, validationResult} = require('express-validator');
 const async = require('async');
 const bcrypt = require('bcryptjs');
 
+// Render the signup form
 exports.signup_get = function(req, res, next) {
   res.render('signup_form', { title: "Sign up" })
 }
@@ -42,6 +43,7 @@ exports.signup_post = [
     const errors = validationResult(req);
 
     if (errors.isEmpty()) {
+      // Hash the password, then use the hashed password to create the user
       bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
         if (err) return next(err);
         var user = new User({
@@ -56,7 +58,6 @@ exports.signup_post = [
         })
       })
     } else {
-      console.log(errors.array());
       res.render('signup_form', { title: "Sign up", errors: errors.array() });
     }
   }
