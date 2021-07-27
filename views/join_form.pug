@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+  h1 Join the club
+  form#joinform(action="" method="POST") 
+    label(for="user_name") Username: 
+    input(type="text" name="user_name" placeholder="Username..." required="true")
+    label(for="passcode") Passcode:
+    input(type="number" name="passcode" placeholder="Passcode..." required="true")
+    input(type="submit" value="Submit")
+    
+  if errors 
+    ul
+      each error in errors 
+        li #{error.msg}
