@@ -32,7 +32,7 @@ exports.join_post = [
     if (!errors.isEmpty()) {
       res.render('join_form', { title: "Sign up", errors: errors.array() });
     } else {
-      User.findOneAndUpdate({ username: req.body.user_name }, { membership_status: true }, { new: true }, function(err, theuser) {
+      User.findOneAndUpdate({ username: req.body.user_name }, { membership_status: { member: true, admin: false } }, { new: true }, function(err, theuser) {
         if (err) return next(err);
         res.redirect('/');
       })

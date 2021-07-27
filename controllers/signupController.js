@@ -22,7 +22,7 @@ exports.signup_post = [
     return new Promise((resolve, reject) => {
       User.findOne({ username: req.body.user_name }, function(err, user) {
         if (err) return next(err);
-        if(user.username == value) {
+        if(user && user.username == value) {
           reject(new Error('Username is already in use.'))
         }
         resolve(true);
@@ -47,7 +47,10 @@ exports.signup_post = [
           last_name: req.body.last_name,
           username: req.body.user_name,
           password: hashedPassword,
-          membership_status: false,
+          membership_status: {
+            member: false,
+            admin: false
+          },
         }).save(err => {
           if (err) return next(err);
           res.redirect('/');
