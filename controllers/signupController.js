@@ -10,10 +10,6 @@ exports.signup_get = function(req, res, next) {
 }
 
 exports.signup_post = [
-  (req, res, next) => {
-    next();
-  },
-
   // Check and sanitize all the fields
   body('first_name', 'Name must be longer than 3 characters.').trim().isLength({ min: 3 }).escape(),
   body('first_name', 'Name must not be longer than 100 characters.').trim().isLength({ max: 100 }).escape(),
