@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+  h1 Log in
+  form#loginform(action="" method="POST")
+    label(for="username") Username: 
+    input(name="username" placeholder="Username..." type="text")
+    label(for="password") Password: 
+    input(name="password" type="password")
+    button Log in
+
+  if errors 
+    ul
+      each error in errors 
+        li #{error.msg}
