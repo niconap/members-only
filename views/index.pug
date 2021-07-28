@@ -16,7 +16,7 @@ block content
       p= message.text 
       if user
         if user.membership_status.member
-          p= message.timestamp 
+          p Posted on #{message.date}
           p Posted by #{message.user.name} (#{message.user.username})
         if user.membership_status.admin || user.username == message.user.username
           a(href=message.url+'/delete') Delete message

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var { DateTime } = require('luxon')
 
 var MessageSchema = new Schema({
   title: { type: String, minLength: 3, maxLength: 100, required: true },
@@ -10,6 +11,10 @@ var MessageSchema = new Schema({
 
 MessageSchema.virtual('url').get(function() {
   return '/membersonly/message/' + this._id;
+})
+
+MessageSchema.virtual('date').get(function() {
+  return DateTime.fromJSDate(this.timestamp).toFormat('dd-MM-yyyy').toString();
 })
 
 module.exports = mongoose.model('Message', MessageSchema);
