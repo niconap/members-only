@@ -5,7 +5,7 @@ block content
   if user
     p Welcome #{user.name}
     if user.membership_status.member
-      a(href="/membersonly/logout") Log out
+      p #[a(href="/membersonly/logout") Log out] or #[a(href="/membersonly/message/create") post a message].
     else 
       p #[a(href="/membersonly/logout") Log out] or #[a(href="/membersonly/join") join the club].
   else
