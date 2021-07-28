@@ -37,3 +37,25 @@ exports.create_post = [
     }
   }
 ]
+
+exports.delete_get = function(req, res, next) {
+  async.parallel({
+    message: function(callback) {
+      Message.findById(req.params.id).populate('user').exec(callback);
+    }
+  },
+  function(err, results) {
+    if (err) return next(err);
+    if (results.message == null) {
+      res.redirect('/');
+    }
+    res.render('message_delete', { title: 'Delete message: ', message: results.message, user: req.user })
+  })
+}
+
+exports.delete_post = function(req, res, next) {
+  Message.findByIdAndRemove(req.body.messageid, function deleteMessage(err) {
+    if (err) return next(err);
+    res.redirect('/');
+  })
+}
