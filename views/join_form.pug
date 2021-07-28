@@ -2,13 +2,16 @@ extends layout
 
 block content 
   h1 Join the club
-  if !user.membership_status.member
-    form#joinform(action="" method="POST") 
-      label(for="passcode") Passcode:
-      input(type="number" name="passcode" placeholder="Passcode..." required="true")
-      input(type="submit" value="Submit")
-  else 
-    p You've already joined the club!
+  if user
+    if !user.membership_status.member
+      form#joinform(action="" method="POST") 
+        label(for="passcode") Passcode:
+        input(type="number" name="passcode" placeholder="Passcode..." required="true")
+        input(type="submit" value="Submit")
+    else 
+      p You've already joined the club!
+  else
+    p You need to #[a(href="/membersonly/signup") create an account] or #[a(href="/membersonly/login") log in] to join.
     
   if errors 
     ul

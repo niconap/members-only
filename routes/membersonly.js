@@ -3,13 +3,14 @@ var router = express.Router();
 var signupController = require('../controllers/signupController');
 var joinController = require('../controllers/joinController');
 var loginController = require('../controllers/loginController');
+var messageController = require('../controllers/messageController');
 var async = require('async');
 var Message = require('../models/message');
 
 router.get('/', function(req, res, next) {
   async.parallel({
     messages: function(callback) {
-      Message.find().exec(callback);
+      Message.find().populate('user').exec(callback);
     }
   },
   function(err, results) {
@@ -31,5 +32,9 @@ router.get('/login', loginController.login_get);
 router.post('/login', loginController.login_post);
 
 router.get('/logout', loginController.logout);
+
+router.get('/message/create', messageController.create_get);
+
+router.post('/message/create', messageController.create_post);
 
 module.exports = router;

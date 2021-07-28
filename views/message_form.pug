@@ -1,0 +1,18 @@
+extends layout 
+
+block content 
+  h1= title
+  if user && user.membership_status.member
+    form#messageform(action="" method="POST")
+      label(for="title") Title:
+      input(type="text" name="title" placeholder="Title..." required="true")
+      label(for="text") Message: 
+      textarea(name="text" placeholder="Message..." required="true")
+      input(type="submit" value="Submit")
+  else 
+    p You need to #[a(href="/membersonly/signup") create an account], #[a(href="/membersonly/login") log in] or #[a(href="/membersonly/join") join] to post a message.
+  
+  if errors 
+    ul
+      each error in errors 
+        li #{error.msg}

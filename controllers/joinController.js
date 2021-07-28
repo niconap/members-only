@@ -1,5 +1,4 @@
 const User = require('../models/user');
-const Message = require('../models/message')
 const { body, validationResult} = require('express-validator');
 const async = require('async');
 
@@ -20,7 +19,7 @@ exports.join_post = [
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      res.render('join_form', { title: "Sign up", errors: errors.array() });
+      res.render('join_form', { title: "Sign up", user: req.user, errors: errors.array() });
     } else {
       User.findOneAndUpdate({ username: req.user.username }, { membership_status: { member: true, admin: false } }, { new: true }, function(err, theuser) {
         if (err) return next(err);
