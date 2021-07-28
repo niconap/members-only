@@ -2,12 +2,13 @@ extends layout
 
 block content 
   h1 Join the club
-  form#joinform(action="" method="POST") 
-    label(for="user_name") Username: 
-    input(type="text" name="user_name" placeholder="Username..." required="true")
-    label(for="passcode") Passcode:
-    input(type="number" name="passcode" placeholder="Passcode..." required="true")
-    input(type="submit" value="Submit")
+  if !user.membership_status.member
+    form#joinform(action="" method="POST") 
+      label(for="passcode") Passcode:
+      input(type="number" name="passcode" placeholder="Passcode..." required="true")
+      input(type="submit" value="Submit")
+  else 
+    p You've already joined the club!
     
   if errors 
     ul

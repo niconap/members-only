@@ -4,7 +4,10 @@ block content
   h1= title
   if user
     p Welcome #{user.name}
-    a(href="/membersonly/logout") Log out
+    if user.membership_status.member
+      a(href="/membersonly/logout") Log out
+    else 
+      p #[a(href="/membersonly/logout") Log out] or #[a(href="/membersonly/join") join the club].
   else
     p Welcome! Please #[a(href="/membersonly/signup") create an account] or #[a(href="/membersonly/login") log in].
   
