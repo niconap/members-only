@@ -2,4 +2,9 @@ extends layout
 
 block content
   h1= title
-  p Welcome #{user.name}
+  if user
+    p Welcome #{user.name}
+    a(href="/membersonly/logout") Log out
+  else
+    p Welcome! Please #[a(href="/membersonly/signup") create an account] or #[a(href="/membersonly/login") log in].
+  
