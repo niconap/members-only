@@ -20,3 +20,5 @@ block content
           p Posted by #{message.user.name} (#{message.user.username})
         if user.membership_status.admin || user.username == message.user.username
           a(href=message.url+'/delete') Delete message
+  if user && user.membership_status.member && !user.membership_status.admin
+    p Become an admin by clicking #[a(href="/membersonly/admin") here].
