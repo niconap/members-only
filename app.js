@@ -16,10 +16,20 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var membersonlyRouter = require('./routes/membersonly');
 
+var compression = require('compression');
+var helmet = require('helmet');
+
 var app = express();
 
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
+
 var mongoose = require('mongoose');
-var mongoDB = process.env.MONGODB_URI;
+var dev_db_url = process.env.MONGO_URI;
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -65,6 +75,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
