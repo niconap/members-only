@@ -1,13 +1,16 @@
 extends layout 
 
 block content 
-  h1 Become an admin
+  div#topcontent
+    h1 Become an admin
   if user
     if !user.membership_status.admin
       form#joinform(action="" method="POST") 
-        label(for="passcode") Passcode:
-        input(type="number" name="passcode" placeholder="Passcode..." required="true")
-        input(type="submit" value="Submit")
+        div.formarea 
+          label(for="passcode") Passcode:
+          input.textinput(type="number" name="passcode" placeholder="Passcode..." required="true")
+        div.formarea
+          input.button(type="submit" value="Submit")
     else 
       p You're already an admin!
   else
@@ -17,4 +20,4 @@ block content
     ul
       each error in errors 
         li #{error.msg}
-  a(href="/") Cancel
+  a.button(href="/") Cancel

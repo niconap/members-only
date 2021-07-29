@@ -1,21 +1,23 @@
 extends layout 
 
 block content
-  h1 #{title}#{message.title}
+  div#topcontent
+    h1.title #{title}#{message.title}
   if user && (user.membership_status.admin || user.username == message.user.username)
-    p Message: 
-      h3= message.title 
-      p= message.text
-    p Do you really want to delete this message?
     form(method='POST' action='')
-      div
-        input(type='hidden' name='messageid' required='true' value=message._id)
-        button Delete 
+      div.message
+        h2 Do you really want to delete this message? 
+        br
+        h3= message.title 
+        p= message.text
+      input(type='hidden' name='messageid' required='true' value=message._id)
+      button.button Delete 
+      if errors
+        ul
+          for error in errors
+            li!= error.msg
   else 
     p You do not have permission to delete this message.
 
-  if errors
-    ul
-      for error in errors
-        li!= error.msg
-  a(href="/") Cancel
+
+  a.button(href="/") Cancel

@@ -1,14 +1,18 @@
 extends layout 
 
 block content 
-  h1= title
+  div#topcontent
+    h1.title= title
   if user && user.membership_status.member
     form#messageform(action="" method="POST")
-      label(for="title") Title:
-      input(type="text" name="title" placeholder="Title..." required="true")
-      label(for="text") Message: 
-      textarea(name="text" placeholder="Message..." required="true")
-      input(type="submit" value="Submit")
+      div.formarea
+        label(for="title") Title:
+        input.textinput(type="text" name="title" placeholder="Title..." required="true")
+      div.formarea
+        label(for="text") Message: 
+        textarea.textarea(name="text" placeholder="Message..." required="true")
+      div.formarea
+        input.button(type="submit" value="Submit")
   else 
     p You need to #[a(href="/membersonly/signup") create an account], #[a(href="/membersonly/login") log in] or #[a(href="/membersonly/join") join] to post a message.
   
@@ -16,4 +20,4 @@ block content
     ul
       each error in errors 
         li #{error.msg}
-  a(href="/") Cancel
+  a.button(href="/") Cancel

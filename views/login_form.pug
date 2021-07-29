@@ -1,16 +1,20 @@
 extends layout 
 
 block content 
-  h1 Log in
+  div#topcontent
+    h1.title Log in
   form#loginform(action="" method="POST")
-    label(for="username") Username: 
-    input(name="username" placeholder="Username..." type="text")
-    label(for="password") Password: 
-    input(name="password" type="password")
-    button Log in
+    div.formarea
+      label(for="username") Username: 
+      input.textinput(name="username" placeholder="Username..." type="text")
+    div.formarea
+      label(for="password") Password: 
+      input.textinput(name="password" type="password" placeholder="Password...")
+    div.formarea
+      button.button Log in
 
   if errors 
     ul
       each error in errors 
         li #{error.msg}
-  a(href="/") Cancel
+  a.button(href="/") Cancel

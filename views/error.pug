@@ -1,6 +1,7 @@
 extends layout
 
 block content
-  h1= message
+  div#topcontent
+    h1= message
   h2= error.status
-  pre #{error.stack}
+  p Oops! It seems like this page does not exist (yet)!

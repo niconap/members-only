@@ -1,24 +1,30 @@
 extends layout
 
 block content
-  h1= title
-  if user
-    p Welcome #{user.name}
-    if user.membership_status.member
-      p #[a(href="/membersonly/logout") Log out] or #[a(href="/membersonly/message/create") post a message].
-    else 
-      p #[a(href="/membersonly/logout") Log out] or #[a(href="/membersonly/join") join the club].
-  else
-    p Welcome! Please #[a(href="/membersonly/signup") create an account] or #[a(href="/membersonly/login") log in].
+  div#topcontent
+    h1.title= title
+    if user
+      p Welcome #{user.name}
+      if user.membership_status.member
+        a.button#specialbutton(href="/membersonly/logout") Log out
+        a.button#specialbutton(href="/membersonly/message/create") Post a message
+      else 
+        a.button#specialbutton(href="/membersonly/logout") Log out 
+        a.button#specialbutton(href="/membersonly/join") Join the club
+    else
+      p Welcome! Please #[a(href="/membersonly/signup") create an account] or #[a(href="/membersonly/login") log in].
   each message in messages
     div.message
-      h2= message.title 
-      p= message.text 
+      h2.messagetitle= message.title 
+      p.messagetext= message.text 
       if user
         if user.membership_status.member
-          p Posted on #{message.date}
-          p Posted by #{message.user.name} (#{message.user.username})
+          div.messageinfo
+            p Posted on #{message.date}
+            p Posted by #{message.user.name} (#{message.user.username})
         if user.membership_status.admin || user.username == message.user.username
-          a(href=message.url+'/delete') Delete message
+          a.button(href=message.url+'/delete') Delete message
   if user && user.membership_status.member && !user.membership_status.admin
+    br
     p Become an admin by clicking #[a(href="/membersonly/admin") here].
+  block footer

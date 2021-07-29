@@ -1,22 +1,30 @@
 extends layout 
 
 block content 
-  h1 Sign up
+  div#topcontent
+    h1.title Sign up
   form#signupform(action="" method="POST") 
-    label(for="first_name") Name: 
-    input(type="text" name="first_name" placeholder="Name..." required="true")
-    label(for="last_name") Last name: 
-    input(type="text" name="last_name" placeholder="Last name..." required="true")
-    label(for="user_name") Username: 
-    input(type="text" name="user_name" placeholder="Username..." required="true")
-    label(for="password") Password: 
-    input(type="password" name="password" placeholder="Password..." required="true")
-    label(for="confirm_password") Confirm password: 
-    input(type="password" name="confirm_password" placeholder="Confirm password..." required="true")
-    input(type="submit" value="Sign up")
+    div.formarea
+      label(for="first_name") Name: 
+      input.textinput(type="text" name="first_name" placeholder="Name..." required="true")
+    div.formarea
+      label(for="last_name") Last name: 
+      input.textinput(type="text" name="last_name" placeholder="Last name..." required="true")
+    div.formarea
+      label(for="user_name") Username: 
+      input.textinput(type="text" name="user_name" placeholder="Username..." required="true")
+    div.formarea
+      label(for="password") Password: 
+      input.textinput(type="password" name="password" placeholder="Password..." required="true")
+    div.formarea
+      label(for="confirm_password") Confirm password: 
+      input.textinput(type="password" name="confirm_password" placeholder="Confirm password..." required="true")
+    div.formarea
+      input.button(type="submit" value="Sign up")
+    if errors 
+      ul
+        each error in errors 
+          li #{error.msg}
 
-  if errors 
-    ul
-      each error in errors 
-        li #{error.msg}
-  a(href="/") Cancel
+  
+  a.button(href="/") Cancel
