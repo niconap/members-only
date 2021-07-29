@@ -14,6 +14,7 @@ For this project I used pug for the view templates, Node.js to run the code and 
 - dotenv
 - express-validator
 - mongoose
+- passport
 - nodemon
 
 All the data will be stored in a MongoDB Atlas database. Some data in that database will be encrypted (which is part of the project). The instructions for the project can be found [here](https://www.theodinproject.com/paths/full-stack-javascript/courses/nodejs/lessons/members-only).
@@ -21,3 +22,5 @@ All the data will be stored in a MongoDB Atlas database. Some data in that datab
 ### How does it work?
 
 Messages are displayed on the homepage of the website, but a non-member can't see who wrote those messages. To become a member, the non-member has to create an account and then join the club by entering their username and a secret passcode. Once they've done that, they'll become a member! There's also an admin user, they can delete messages from other people if they want to. 
+
+You can view this project live by clicking [here](https://fathomless-plains-00201.herokuapp.com/membersonly).
