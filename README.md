@@ -1,6 +1,6 @@
 # Members only
 
-This project will be a website with messages. Only when users are logged in and a member of the website can they view the authors of the messages. If the user is not a member, the user can not create messages nor view who wrote the already existing messages.
+This project is a website where users can post messages. Only when users are logged in and when they are a member of the website can they view the authors of the messages and the dates that they were posted on. If the user is not a member, the user can not create messages nor view who wrote the already existing messages. Users can become a member by entering a secret passcode.
 
 ### Motivation
 
