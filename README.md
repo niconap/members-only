@@ -4,11 +4,11 @@ This project is a website where users can post messages. Only when users are log
 
 ### Motivation
 
-This project is part of the The Odin Project curriculum (Node.js course). In this project I'll practice with authentication in Node.js and setting up a Node.js backend in general. 
+This project is part of the The Odin Project curriculum (Node.js course). In this project I practiced with authentication in Node.js and setting up a Node.js backend in general. 
 
 ### Things used
 
-For this project I used pug for the view templates, Node.js to run the code and a few packages:
+For this project I used pug for the view templates, Node.js to run the code and a few npm packages:
 - express
 - async
 - dotenv
@@ -17,7 +17,7 @@ For this project I used pug for the view templates, Node.js to run the code and 
 - passport
 - nodemon
 
-All the data will be stored in a MongoDB Atlas database. Some data in that database will be encrypted (which is part of the project). The instructions for the project can be found [here](https://www.theodinproject.com/paths/full-stack-javascript/courses/nodejs/lessons/members-only).
+All the data is stored in a MongoDB database. Some data in that database is encrypted (which is part of the project). The instructions for the project can be found [here](https://www.theodinproject.com/paths/full-stack-javascript/courses/nodejs/lessons/members-only).
 
 ### How does it work?
 
