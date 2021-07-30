@@ -13,7 +13,7 @@ exports.admin_get = function(req, res, next) {
 
 exports.admin_post = [
   // Check if the entered passcode is correct
-  body('passcode', 'Passcode is incorrect.').equals(555666),
+  body('passcode', 'Passcode is incorrect.').equals('555666'),
 
   (req, res, next) => {
     const errors = validationResult(req);

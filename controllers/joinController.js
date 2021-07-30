@@ -13,7 +13,7 @@ exports.join_get = function(req, res, next) {
 
 exports.join_post = [
   // Check if the entered passcode is correct
-  body('passcode', 'Passcode is incorrect.').equals(54678),
+  body('passcode', 'Passcode is incorrect.').equals('54678'),
 
   (req, res, next) => {
     const errors = validationResult(req);
