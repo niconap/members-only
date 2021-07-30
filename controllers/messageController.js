@@ -27,7 +27,7 @@ exports.create_post = [
     })
 
     if (!errors.isEmpty()) {
-      res.render('message_form', { title: 'Post message', user: req.user, errors: errors.array() });
+      res.render('message_form', { title: 'Post message', user: req.user, formtitle: req.body.title, formtext: req.body.text, errors: errors.array() });
       return;
     } else {
       message.save(function(err) {

@@ -7,10 +7,10 @@ block content
     form#messageform(action="" method="POST")
       div.formarea
         label(for="title") Title:
-        input.textinput(type="text" name="title" placeholder="Title..." required="true")
+        input.textinput(type="text" name="title" placeholder="Title..." required="true" value=(undefined === formtitle ? '' : formtitle))
       div.formarea
         label(for="text") Message: 
-        textarea.textarea(name="text" placeholder="Message..." required="true")
+        textarea.textarea(name="text" placeholder="Message..." required="true")= undefined === formtext ? '' : formtext
       div.formarea
         input.button(type="submit" value="Submit")
   else 

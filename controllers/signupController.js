@@ -57,7 +57,7 @@ exports.signup_post = [
         })
       })
     } else {
-      res.render('signup_form', { title: "Sign up", errors: errors.array() });
+      res.render('signup_form', { title: "Sign up", formfirstname: req.body.first_name, formlastname: req.body.last_name, formusername: req.body.user_name, errors: errors.array() });
     }
   }
 ]

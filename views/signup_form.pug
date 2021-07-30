@@ -6,13 +6,13 @@ block content
   form#signupform(action="" method="POST") 
     div.formarea
       label(for="first_name") Name: 
-      input.textinput(type="text" name="first_name" placeholder="Name..." required="true")
+      input.textinput(type="text" name="first_name" placeholder="Name..." required="true" value=(undefined === formfirstname ? '' : formfirstname))
     div.formarea
       label(for="last_name") Last name: 
-      input.textinput(type="text" name="last_name" placeholder="Last name..." required="true")
+      input.textinput(type="text" name="last_name" placeholder="Last name..." required="true" value=(undefined === formlastname ? '' : formlastname))
     div.formarea
       label(for="user_name") Username: 
-      input.textinput(type="text" name="user_name" placeholder="Username..." required="true")
+      input.textinput(type="text" name="user_name" placeholder="Username..." required="true" value=(undefined === formusername ? '' : formusername))
     div.formarea
       label(for="password") Password: 
       input.textinput(type="password" name="password" placeholder="Password..." required="true")
