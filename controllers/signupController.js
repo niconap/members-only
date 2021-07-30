@@ -53,7 +53,7 @@ exports.signup_post = [
           },
         }).save(err => {
           if (err) return next(err);
-          res.redirect('/');
+          res.render('signup_complete');
         })
       })
     } else {
