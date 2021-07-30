@@ -11,10 +11,10 @@ exports.create_get = function(req, res, next) {
 
 exports.create_post = [
   // Check and sanitize the fields
-  body('title', 'Your title must be at least 3 characters long.').trim().isLength({ min: 3 }).escape(),
-  body('title', 'Your title must not be longer than 100 characters.').trim().isLength({ max: 100 }).escape(),
-  body('text', 'Your message must be at least 3 characters long.').trim().isLength({ min: 3 }).escape(),
-  body('text', 'Your message must not be longer than 250 characters.').trim().isLength({ max: 250 }).escape(),
+  body('title', 'Your title must be at least 3 characters long.').trim().isLength({ min: 3 }),
+  body('title', 'Your title must not be longer than 100 characters.').trim().isLength({ max: 100 }),
+  body('text', 'Your message must be at least 3 characters long.').trim().isLength({ min: 3 }),
+  body('text', 'Your message must not be longer than 250 characters.').trim().isLength({ max: 250 }),
 
   (req, res, next) => {
     const errors = validationResult(req);
