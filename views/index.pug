@@ -21,7 +21,7 @@ block content
         if user.membership_status.member
           div.messageinfo
             p Posted on #{message.date}
-            p Posted by #{message.user.name} (#{message.user.username})
+            p Posted by #{message.user.name} (#[a(href=message.user.url) #{message.user.username}])
         if user.membership_status.admin || user.username == message.user.username
           a.button(href=message.url+'/delete') Delete message
   if user && user.membership_status.member && !user.membership_status.admin

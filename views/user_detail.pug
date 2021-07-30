@@ -1,0 +1,23 @@
+extends layout 
+
+block content
+  div#topcontent
+    h1 You're currently viewing #{person.name}'s profile.
+  if user
+    if user.membership_status.member
+      h2 All of #{person.name}'s messages:
+      each message in messages
+        div.message
+          h2.messagetitle= message.title 
+          p.messagetext= message.text 
+          if user
+            if user.membership_status.member
+              div.messageinfo
+                p Posted on #{message.date}
+            if user.membership_status.admin || user.username == message.user.username
+              a.button(href=message.url+'/delete') Delete message 
+    else
+      p Currently you do not have permission to view all of #{person.name}'s messages. Please #[a(href="/membersonly/join") join] to view the messages.
+  else 
+    p Please #[a(href="/membersonly/signup") create an account] or #[a(href="/membersonly/login") log in] to view #{person.name}'s messages.
+  a.button(href="/membersonly") Cancel

@@ -5,6 +5,7 @@ var joinController = require('../controllers/joinController');
 var loginController = require('../controllers/loginController');
 var messageController = require('../controllers/messageController');
 var adminController = require('../controllers/adminController');
+var userController = require('../controllers/userController');
 var async = require('async');
 var Message = require('../models/message');
 
@@ -45,5 +46,7 @@ router.post('/message/:id/delete/', messageController.delete_post);
 router.get('/admin', adminController.admin_get);
 
 router.post('/admin', adminController.admin_post);
+
+router.get('/user/:id', userController.user_get);
 
 module.exports = router;
