@@ -22,7 +22,7 @@ All the data is stored in a MongoDB database. Some data in the database is encry
 ### How does it work?
 Messages are displayed on the homepage of the website, but a non-member can't see who wrote those messages. To become a member, the non-member has to create an account and then join the club by entering their username and a secret passcode. Once they've done that, they'll become a member! There's also an admin user, they can delete messages from other people if they want to. Any member can become an admin if they know the passcode.
 
-You can view this project live by clicking [here](https://fathomless-plains-00201.herokuapp.com/membersonly). Using a dummy account can be done by using the following credentials:
+You can view this project live by clicking [here](https://members-only-685y.onrender.com/membersonly). Using a dummy account can be done by using the following credentials:
 - Username: dummy
 - Password: Password
 
