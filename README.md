@@ -3,6 +3,7 @@
 You can view this project live by clicking [here](https://members-only-685y.onrender.com/membersonly). Using a dummy account can be done by using the following credentials:
 - Username: dummy
 - Password: Password
+The code for joining the club is 54678.
 
 ## What is it?
 This project is a website where users can post messages. Only when users are logged in and when they are a member of the website can they view the authors of the messages and the dates that they were posted on. If the user is not a member, the user can not create messages nor view who wrote the already existing messages. Users can become a member by entering a secret passcode.
