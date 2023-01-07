@@ -1,12 +1,16 @@
 # Members only
 
-### What is it?
+You can view this project live by clicking [here](https://members-only-685y.onrender.com/membersonly). Using a dummy account can be done by using the following credentials:
+- Username: dummy
+- Password: Password
+
+## What is it?
 This project is a website where users can post messages. Only when users are logged in and when they are a member of the website can they view the authors of the messages and the dates that they were posted on. If the user is not a member, the user can not create messages nor view who wrote the already existing messages. Users can become a member by entering a secret passcode.
 
-### Motivation
+## Motivation
 This project is part of the The Odin Project curriculum (Node.js course). In this project I practiced with authentication in Node.js and setting up a Node.js backend in general. 
 
-### Tools used
+## Tools used
 For this project I used pug for the view templates, Node.js to run the code and a few npm packages:
 - express
 - async
@@ -19,17 +23,13 @@ See the `package.json` file for a full list of all dependencies.
 
 All the data is stored in a MongoDB database. Some data in the database is encrypted using bcrypt (which is part of the project). The instructions for the project can be found [here](https://www.theodinproject.com/paths/full-stack-javascript/courses/nodejs/lessons/members-only).
 
-### How does it work?
+## How does it work?
 Messages are displayed on the homepage of the website, but a non-member can't see who wrote those messages. To become a member, the non-member has to create an account and then join the club by entering their username and a secret passcode. Once they've done that, they'll become a member! There's also an admin user, they can delete messages from other people if they want to. Any member can become an admin if they know the passcode.
 
-You can view this project live by clicking [here](https://members-only-685y.onrender.com/membersonly). Using a dummy account can be done by using the following credentials:
-- Username: dummy
-- Password: Password
-
-### API documentation
+## API documentation
 The API does not send data in JSON format, instead it renders the webpages.
 
-#### GET requests
+### GET requests
 `/signup/` renders the signup page.
 
 `/join/` renders the join page where users need to enter a secret code to become a member.
@@ -46,7 +46,7 @@ The API does not send data in JSON format, instead it renders the webpages.
 
 `/user/:id/` will render a user's account page.
 
-#### POST requests
+### POST requests
 All data needs to be provided in the body of the HTTP request.
 
 `/signup/` creates an account. Data needs to be provided in the following format:
